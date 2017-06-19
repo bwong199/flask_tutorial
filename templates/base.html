@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+	<title>{% block title %}{% endblock %} - The Acme Co.</title>
+	{% endblock %}
+</head>
+
+<body>
+	<h1>The Acme Co.</h1>
+
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul class="flashes">
+		{% for message in messages %}
+		<li>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+
+	<div id="content">
+	{% block content %}{% endblock %}
+	</div>
+
+<footer>
+	{% block footer %}
+	&copy; Copyright 2014 by <a href="http://acmeco">The Acme Co.</a>
+	{% endblock %}
+</footer>
+</body>
+</html>
